@@ -25,9 +25,13 @@ import UserNotifications
     func scheduleNotification(at date: Date) {
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents(in: .current, from: date)
+        components.hour = 9
+        components.minute = 0
+        components.second = 0
+        
         let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
     
-        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
         
         let content = UNMutableNotificationContent()
         content.title = "Test Local Notification"
