@@ -24,7 +24,9 @@ import UserNotifications
     
     func scheduleNotification(at date: Date) {
         let calendar = Calendar(identifier: .gregorian)
-        let components = calendar.dateComponents(in: .current, from: date)
+        var components = calendar.dateComponents(in: .current, from: date)
+        
+        //HERE IS WHERE WE SET THE HOUR, MINUTE, SECOND OF THE REPEATING NOTIFICATION.
         components.hour = 9
         components.minute = 0
         components.second = 0
